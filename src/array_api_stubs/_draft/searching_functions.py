@@ -157,3 +157,13 @@ def where(condition: array, x1: array, x2: array, /) -> array:
     out: array
         an array with elements from ``x1`` where ``condition`` is ``True``, and elements from ``x2`` elsewhere. The returned array must have a data type determined by :ref:`type-promotion` rules with the arrays ``x1`` and ``x2``.
     """
+
+def top_k(
+    x: array,
+    k: int,
+    /,
+    axis: Optional[int] = None,
+    *,
+    largest: bool = True,
+) -> Tuple[array, array]:
+    ...
