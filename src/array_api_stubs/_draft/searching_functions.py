@@ -166,4 +166,33 @@ def top_k(
     *,
     largest: bool = True,
 ) -> Tuple[array, array]:
-    ...
+    """
+    Returns the ``k`` largest (or smallest) elements of an input array ``x`` along a specified dimension.
+
+    Parameters
+    ----------
+    x: array
+        input array. Should have a real-valued data type.
+    k: int
+        number of elements to find. Must be a positive integer value.
+    axis: Optional[int]
+        axis along which to search. If ``None``, the function must search the flattened array. Default: ``None``.
+    largest: bool
+        search mode. Must be one of the following modes:
+        -  ``True``: return the ``k`` largest elements.
+        -  ``False``: return the ``k`` smallest elements.
+        Default: ``True``.
+    
+    Returns
+    -------
+    out: Tuple[array, array]
+        a tuple ``(values, indices)`` whose
+        - first element must have the field name ``values`` and must be an array containing the ``k`` largest (or smallest) elements of ``x``. The array must have the same data type as ``x``. If ``axis`` is ``None``, the array must be a one-dimensional array having shape ``(k,)``; otherwise, if ``axis`` is an integer value, the array must have the same rank (number of dimensions) and shape as ``x``, except for the axis specified by ``axis`` which must have size ``k``.
+        - second element must have the field name ``indices`` and must be an array containing indices of ``x`` that result in ``values``. The array must have the same shape as ``values`` and must have the default array index data type. If ``axis`` is ``None``, ``indices`` must be the indices of a flattened ``x``.
+    
+    Notes
+    -----
+    -   If ``k`` exceeds the number of elements in ``x`` or along the axis specified by ``axis``, behavior is left unspecified and thus implementation-dependent. Conforming implementations may choose, e.g., to raise an exception or return all elements.
+    -   The order of the returned values and indices is left unspecified and thus implementation-dependent. Conforming implementations may return sorted or unsorted values.
+    -   Conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
+    """
