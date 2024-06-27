@@ -1,4 +1,4 @@
-__all__ = ["argmax", "argmin", "nonzero", "searchsorted", "where"]
+__all__ = ["argmax", "argmin", "nonzero", "searchsorted", "where", "top_k"]
 
 
 from ._types import Optional, Tuple, Literal, array
